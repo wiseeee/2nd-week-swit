@@ -1,3 +1,10 @@
+import {
+  ADD_MESSAGE,
+  DELETE_MESSAGE,
+  REPLY_MESSAGE,
+  LOG_IN,
+} from '../actions/types';
+
 const initialState = {
   loggedInUser: {
     id: 4,
@@ -42,7 +49,7 @@ const initialState = {
   ],
 };
 
-const PokemonReducer = (state = initialState, action) => {
+const Reducer = (action, state = initialState) => {
   switch (action.type) {
     case ADD_MESSAGE:
       return {};
@@ -57,4 +64,4 @@ const PokemonReducer = (state = initialState, action) => {
   }
 };
 
-export default PokemonReducer;
+export default Reducer;
