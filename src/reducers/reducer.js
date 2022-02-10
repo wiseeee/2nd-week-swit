@@ -49,16 +49,17 @@ const initialState = {
   ],
 };
 
-const Reducer = (action, state = initialState) => {
+// eslint-disable-next-line default-param-last
+const Reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
-      return {};
+      return state;
     case DELETE_MESSAGE:
-      return {};
+      return state;
     case REPLY_MESSAGE:
-      return {};
+      return state;
     case LOG_IN:
-      return {};
+      return state;
     default:
       return state;
   }

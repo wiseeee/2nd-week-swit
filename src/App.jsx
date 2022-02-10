@@ -4,10 +4,10 @@ import MessageList from 'components/MessageList/index';
 
 function App() {
   return (
-    <>
+    <div className="App">
       <MessageList />
       <Input />
-    </>
+    </div>
   );
 }
 
