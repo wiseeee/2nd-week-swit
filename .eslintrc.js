@@ -44,4 +44,12 @@ module.exports = {
       },
     },
   },
+  overrides: [
+    {
+      files: ['./src/reducers/**/*.js'],
+      rules: {
+        'default-param-last': 'off',
+      },
+    },
+  ],
 };
