@@ -3,7 +3,7 @@ import {
   DELETE_MESSAGE,
   REPLY_MESSAGE,
   LOG_IN,
-} from '../actions/types';
+} from 'actions/types';
 
 const initialState = {
   loggedInUser: {
