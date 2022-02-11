@@ -22,7 +22,6 @@ function MessageList() {
     <S.MessageListWrap ref={scrollRef}>
       {AllMessage.map((message, key) => (
         <Message key={key} message={message} />
-
       ))}
     </S.MessageListWrap>
   );
