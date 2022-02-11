@@ -11,9 +11,11 @@ function Message(message) {
         <S.NoProfileImage>{userName[0]}</S.NoProfileImage>
       )}
       <div>
-        <div>{userName}</div>
-        <div>{date}</div>
-        <div>{content}</div>
+        <S.MessageTopBar>
+          <S.UserName>{userName}</S.UserName>
+          <S.MessageTimeStamp>{date}</S.MessageTimeStamp>
+        </S.MessageTopBar>
+        <S.Content>{content}</S.Content>
       </div>
     </S.MessageBox>
   );
