@@ -5,8 +5,14 @@ import {
   LOG_IN,
 } from 'actions/types';
 
-const initialState = {
-  loggedInUser: {
+// 액션 생성 함수
+export const logIn = (name) => {
+  return { type: LOG_IN, payload: name };
+};
+
+// 초기 설정
+const initState = {
+  user: {
     id: 4,
     name: '',
   },
@@ -49,8 +55,8 @@ const initialState = {
   ],
 };
 
-// eslint-disable-next-line default-param-last
-const Reducer = (state = initialState, action) => {
+// 리듀서
+export function messageReducer(state = initState, action) {
   switch (action.type) {
     case ADD_MESSAGE:
       return state;
@@ -58,11 +64,23 @@ const Reducer = (state = initialState, action) => {
       return state;
     case REPLY_MESSAGE:
       return state;
-    case LOG_IN:
-      return state;
     default:
-      return state;
+      return {
+        ...state,
+      };
   }
-};
+}
 
-export default Reducer;
+export function logInReducer(state = initState, action) {
+  switch (action.type) {
+    case LOG_IN:
+      return {
+        ...state,
+        user: { ...state.user, name: action.payload },
+      };
+    default:
+      return {
+        ...state,
+      };
+  }
+}

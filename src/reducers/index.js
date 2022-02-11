@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import Reducer from './reducer';
+import { messageReducer, logInReducer } from 'reducers/reducer';
 
 const rootReducer = combineReducers({
-  // 만들어둔 리듀서 불러오기
-  Reducer,
+  messageReducer,
+  logInReducer,
 });
 
 export default rootReducer;
