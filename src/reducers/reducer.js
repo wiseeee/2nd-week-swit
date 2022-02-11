@@ -10,6 +10,10 @@ export const logIn = (name) => {
   return { type: LOG_IN, payload: name };
 };
 
+export const deleteMessage = (id) => {
+  return { type: DELETE_MESSAGE, payload: id };
+};
+
 // 초기 설정
 const initState = {
   user: {
@@ -69,7 +73,7 @@ export function messageReducer(state = initState, action) {
       return {
         messages: [
           ...state.messages.filter(
-            (message) => message.userName !== state.user.name,
+            (message) => message.messageId !== action.payload,
           ),
         ],
       };

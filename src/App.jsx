@@ -9,7 +9,7 @@ import * as S from 'styles/styled';
 function App() {
   const name = useSelector((state) => state.logInReducer.user.name);
   const dispatch = useDispatch();
-  dispatch(logIn('test'));
+  dispatch(logIn('민무길'));
 
   useEffect(() => {
     // const userInput = prompt('사용자 이름을 입력해주세요.');
