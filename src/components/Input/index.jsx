@@ -1,6 +1,6 @@
 /* eslint-disable no-bitwise */
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
@@ -8,25 +8,23 @@ import { setMessage, addMessage, setBottomMessage } from 'reducers/reducer';
 import { Wrapper, MessageInput, Form, SendBtn } from './styled';
 
 function Input(props) {
+  const textRef = useRef();
   const { scrollToBottom } = props;
   const [rows, setRows] = useState(2);
   const text = useSelector((state) => state.messageReducer.text);
-  const bottomMessage = useSelector(
-    (state) => state.messageReducer.bottomMessage,
-  );
   const currentUser = useSelector((state) => state.logInReducer.user);
   const messages = useSelector((state) => state.messageReducer.messages);
-  const topMsg = useSelector((state) => state.messageReducer.topMessage);
+  const reply = useSelector((state) => state.messageReducer.reply);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setMessage(topMsg + bottomMessage));
-  }, [topMsg]);
+    dispatch(setMessage(reply + text));
+  }, [reply]);
 
-  const onChange = (e) => {
-    e.preventDefault();
+  useEffect(() => {
     const textareaLineHeight = 24;
-    const currentRows = ~~(e.target.scrollHeight / textareaLineHeight) + 1;
+    const currentRows =
+      ~~(textRef.current.scrollHeight / textareaLineHeight) + 1;
     if (currentRows <= 2) {
       setRows(2);
     } else if (currentRows > 10) {
@@ -34,12 +32,15 @@ function Input(props) {
     } else {
       setRows(currentRows);
     }
-    dispatch(setMessage(e.target.value));
-    if (topMsg === '') {
-      dispatch(setBottomMessage(e.target.value));
-    } else if (topMsg.length > 0) {
-      const temp = e.target.value.replace(topMsg, '');
-      dispatch(setBottomMessage(temp));
+  }, [text]);
+
+  const onChange = (e) => {
+    e.preventDefault();
+    if (reply === '') {
+      dispatch(setMessage(e.target.value));
+    } else if (reply.length > 0) {
+      const temp = e.target.value.replace(reply, '');
+      dispatch(setMessage(reply + temp));
     }
     scrollToBottom();
   };
@@ -60,7 +61,6 @@ function Input(props) {
     };
     e.preventDefault();
     dispatch(addMessage(newMessage));
-    dispatch(setMessage(''));
     setRows(2);
   };
 
@@ -81,6 +81,7 @@ function Input(props) {
         <MessageInput
           type="textarea"
           rows={rows}
+          ref={textRef}
           placeholder="Enter message"
           name="message"
           value={text}

@@ -2,10 +2,9 @@
 import {
   ADD_MESSAGE,
   DELETE_MESSAGE,
-  REPLY_MESSAGE,
   LOG_IN,
   SET_MESSAGE,
-  SET_TOP_MESSAGE,
+  SET_REPLY,
   SET_BOTTOM_MESSAGE,
 } from 'actions/types';
 
@@ -18,21 +17,17 @@ export const deleteMessage = (id) => {
   return { type: DELETE_MESSAGE, payload: id };
 };
 
-export const replyMessage = (messageInfo) => {
-  return { type: REPLY_MESSAGE, payload: messageInfo };
-};
-
 export const setMessage = (text) => {
   return { type: SET_MESSAGE, payload: text };
 };
 export const addMessage = (message) => {
   return { type: ADD_MESSAGE, payload: message };
 };
-export const setTopMessage = (messageInfo) => {
-  return { type: SET_TOP_MESSAGE, payload: messageInfo };
+export const setReply = (messageInfo) => {
+  return { type: SET_REPLY, payload: messageInfo };
 };
-export const setBottomMessage = (bottomMessage) => {
-  return { type: SET_BOTTOM_MESSAGE, payload: bottomMessage };
+export const setBottomMessage = (text) => {
+  return { type: SET_BOTTOM_MESSAGE, payload: text };
 };
 
 // 초기 설정
@@ -85,8 +80,7 @@ const initState = {
     },
   ],
   text: '',
-  topMessage: '',
-  bottomMessage: '',
+  reply: '',
 };
 
 // 리듀서
@@ -96,6 +90,8 @@ export function messageReducer(state = initState, action) {
       return {
         ...state,
         messages: [...state.messages, action.payload],
+        text: '',
+        reply: '',
       };
     case DELETE_MESSAGE:
       return {
@@ -106,14 +102,10 @@ export function messageReducer(state = initState, action) {
           ),
         ],
       };
-    case REPLY_MESSAGE:
-      const { userName, content } = action.payload;
-      const message = `${userName}\n${content}\n회신\n${state.text}`;
-      return { ...state, text: message };
-    case SET_TOP_MESSAGE:
+    case SET_REPLY:
       const userInfo = action.payload;
       const msg = `${userInfo.userName}\n${userInfo.content}\n회신\n`;
-      return { ...state, topMessage: msg };
+      return { ...state, reply: msg };
     case SET_MESSAGE:
       return {
         ...state,
@@ -122,7 +114,7 @@ export function messageReducer(state = initState, action) {
     case SET_BOTTOM_MESSAGE:
       return {
         ...state,
-        bottomMessage: action.payload,
+        text: action.payload,
       };
     default:
       return {

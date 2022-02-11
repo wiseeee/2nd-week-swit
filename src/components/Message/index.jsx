@@ -1,12 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteMessage, setTopMessage } from 'reducers/reducer';
+import { deleteMessage, setMessage, setReply } from 'reducers/reducer';
 import * as S from './styled';
 
 function Message(props) {
   const { message } = props;
   const { userName, profileImage, content, date, messageId } = message;
   const name = useSelector((state) => state.logInReducer.user.name);
+  const reply = useSelector((state) => state.messageReducer.reply);
+  const text = useSelector((state) => state.messageReducer.text);
 
   const dispatch = useDispatch();
   const deleteClick = (e) => {
@@ -20,7 +22,10 @@ function Message(props) {
 
   const replyClick = (e) => {
     e.preventDefault();
-    dispatch(setTopMessage(message));
+    if (reply !== `${userName}\n${content}\n회신\n`) {
+      dispatch(setMessage(text.replace(reply, '')));
+      dispatch(setReply(message));
+    }
   };
 
   const myMessage = userName === name;
