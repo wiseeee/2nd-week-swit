@@ -3,6 +3,7 @@
 <h1 align="middle">[과제] Swit</h1>
 
 1. React, Redux 구현
+2. 메신저 삭제, 답장, 추가 기능 구현
 
 # 🔗 배포
 
@@ -24,26 +25,81 @@ $ npm run start
 
 ## [22_01 민무길](https://github.com/gilmujjang)
 
-1. 메신저 리스트
+1. 메신저 삭제, 답장 기능 구현
+2. 메신저 리스트 기능 구현
+3. 코드 리펙토링
 
 ## [22_01 정민형](https://github.com/minbr0ther)
 
 1. Redux 초기 세팅
-2. 입력창
+2. 입력창 기능 구현
 3. CSS 스타일 담당
 
 ## [22_01 김선명](https://github.com/BGM-109)
 
-1. 입력창
+1. 입력창 기능 구현
 2. CSS 스타일 담당
 
 ## [22_01 이현명](https://github.com/wiseeee)
 
-1. 메신저 리스트
+1. 메신저 삭제, 답장 기능 구현
+2. 메신저 리스트 기능 구현
+
+# 👺 이슈 해결
+### eslint & redux 충돌
+- redux 초기 세팅하는데 협업을 위해 설정해둔 eslint와 충둘되어 오류 메세지가 떳다. eslint와 redux의 매개변수가 다른 순서로 사용되어 충돌되었던 것이다.
+이 문제를 해결 하려면 action 매개변수의 기본값을 설정 했어야 했다.
+- [해결방안 url](https://stackoverflow.com/questions/62259351/react-redux-error-default-parameters-should-be-last-default-param-last)
+### useSelector 에러
+- combineReducers를 사용하면, state.{사용하는 리듀서}.{state 내부접근} 순으로 해야하는데 state.{state 내부접근} 이렇게 접근해서 오류가 있었다.
+```
+const name = useSelector((state) => state.logInReducer.user.name);
+```
+### npm run start시 iframe 강제생성 오류
+- package.json에 코드 추가
+```
+"resolutions": {
+    "react-error-overlay": "6.0.9"
+  },
+"devDependencies": {
+    "react-error-overlay": "6.0.9"
+  },
+"scripts": {
+    "preinstall": "npx npm-force-resolutions"
+  }
+```
+### onSubmit 새로고침 되는 현상
+- button 말고 form에 onSubmit 속성 달아줘야 refresh 현상 없어짐
+```
+<form onSubmit={onSubmit}>
+```
 
 # 🏗 프로젝트 구조
 
 ```
+src
+ ┣ actions
+ ┃ ┗ types.js
+ ┣ components
+ ┃ ┣ ChannelToolbar
+ ┃ ┃ ┗ index.jsx
+ ┃ ┣ Input
+ ┃ ┃ ┗ index.jsx
+ ┃ ┣ Message
+ ┃ ┃ ┣ index.jsx
+ ┃ ┃ ┗ styled.js
+ ┃ ┗ MessageList
+ ┃ ┃ ┣ index.jsx
+ ┃ ┃ ┗ styled.js
+ ┣ reducers
+ ┃ ┣ index.js
+ ┃ ┗ reducer.js
+ ┣ styles
+ ┃ ┣ globalStyles.js
+ ┃ ┗ styled.js
+ ┣ App.jsx
+ ┣ index.jsx
+ ┗ store.js
 
 ```
 
