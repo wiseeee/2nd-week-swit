@@ -99,6 +99,7 @@ export function messageReducer(state = initState, action) {
       };
     case DELETE_MESSAGE:
       return {
+        ...state,
         messages: [
           ...state.messages.filter(
             (message) => message.messageId !== action.payload,

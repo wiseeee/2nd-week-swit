@@ -73,7 +73,11 @@ function Input() {
           onChange={onChange}
           onKeyDown={handleKeyPress}
         />
-        <SendBtn type="submit" disabled={!text} isActive={text.length > 0}>
+        <SendBtn
+          type="submit"
+          disabled={!text}
+          isActive={text && text.length > 0}
+        >
           <FontAwesomeIcon icon={faPaperPlane} size="2x" inverse />
         </SendBtn>
       </Form>
