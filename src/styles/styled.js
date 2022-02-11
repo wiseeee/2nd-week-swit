@@ -12,4 +12,5 @@ export const Main = styled.div`
   background: #eee;
   width: 60%;
   min-width: 720px;
+  position: relative;
 `;

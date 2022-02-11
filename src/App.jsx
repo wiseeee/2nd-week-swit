@@ -1,6 +1,5 @@
 /* eslint-disable no-constant-condition */
 import React, { useEffect } from 'react';
-import Input from 'components/Input/index';
 import MessageList from 'components/MessageList/index';
 import ChannelToolbar from 'components/ChannelToolbar';
 import * as S from 'styles/styled';
@@ -25,7 +24,6 @@ function App() {
       <S.Main>
         <ChannelToolbar />
         <MessageList />
-        <Input />
       </S.Main>
     </S.Layout>
   );

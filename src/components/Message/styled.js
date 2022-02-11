@@ -9,7 +9,7 @@ export const MessageBox = styled.div`
   background-color: #ffffff;
   border-radius: 12px;
   margin: 8px; 0
-`;
+  `;
 
 export const ProfileImage = styled.img`
   width: 48px;
@@ -60,4 +60,6 @@ export const MessageBottomBar = styled.div`
 export const Content = styled.div`
   padding: 4px;
   white-space: pre-wrap;
+  overflow-wrap: break-word;
+  max-width: 540px;
 `;
