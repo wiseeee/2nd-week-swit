@@ -7,7 +7,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setMessage, addMessage, setBottomMessage } from 'reducers/reducer';
 import { Wrapper, MessageInput, Form, SendBtn } from './styled';
 
-function Input() {
+function Input(props) {
+  const { scrollToBottom } = props;
   const [rows, setRows] = useState(2);
   const text = useSelector((state) => state.messageReducer.text);
   const bottomMessage = useSelector(
@@ -25,8 +26,7 @@ function Input() {
   const onChange = (e) => {
     e.preventDefault();
     const textareaLineHeight = 24;
-    const currentRows = ~~(e.target.scrollHeight / textareaLineHeight);
-    console.log(currentRows);
+    const currentRows = ~~(e.target.scrollHeight / textareaLineHeight) + 1;
     if (currentRows <= 2) {
       setRows(2);
     } else if (currentRows > 10) {
@@ -41,6 +41,7 @@ function Input() {
       const temp = e.target.value.replace(topMsg, '');
       dispatch(setBottomMessage(temp));
     }
+    scrollToBottom();
   };
   const timestamp = () => {
     const today = new Date();

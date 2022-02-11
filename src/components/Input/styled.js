@@ -10,9 +10,6 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 5px 5px 5px 10px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
   width: calc(100% - 40px);
   &:focus-within {
     border: 1px solid #333;

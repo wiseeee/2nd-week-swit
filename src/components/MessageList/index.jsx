@@ -2,6 +2,8 @@
 import React, { useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Message from 'components/Message';
+import Input from 'components/Input/index';
+
 import * as S from './styled';
 
 function MessageList() {
@@ -19,11 +21,14 @@ function MessageList() {
   }, [AllMessage]);
 
   return (
-    <S.MessageListWrap ref={scrollRef}>
-      {AllMessage.map((message, key) => (
-        <Message key={key} message={message} />
-      ))}
-    </S.MessageListWrap>
+    <S.Wrapper>
+      <S.MessageListWrap ref={scrollRef}>
+        {AllMessage.map((message, key) => (
+          <Message key={key} message={message} />
+        ))}
+      </S.MessageListWrap>
+      <Input scrollToBottom={scrollToBottom} />
+    </S.Wrapper>
   );
 }
 

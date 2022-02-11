@@ -61,4 +61,5 @@ export const Content = styled.div`
   padding: 4px;
   white-space: pre-wrap;
   overflow-wrap: break-word;
+  max-width: 540px;
 `;

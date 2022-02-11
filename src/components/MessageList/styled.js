@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 40px);
+`;
+
 export const MessageListWrap = styled.div`
   display: flex;
   flex-direction: column;
-  height: calc(100% - 140px);
   padding: 4px;
   border-radius: 8px;
   overflow: scroll;
