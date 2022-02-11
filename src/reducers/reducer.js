@@ -23,6 +23,7 @@ const initState = {
       // profileImage: 'https://github.com/minbr0ther.png',
       content: '안녕하세요 저는 정민형입니다.',
       date: '2022-02-10 19:19:03',
+      messageId: 1,
     },
     {
       userId: 2,
@@ -30,6 +31,7 @@ const initState = {
       profileImage: 'https://github.com/BGM-109.png',
       content: '안녕하세요 저는 김선명입니다.',
       date: '2022-02-10 19:20:03',
+      messageId: 2,
     },
     {
       userId: 3,
@@ -37,6 +39,7 @@ const initState = {
       profileImage: 'https://github.com/gilmujjang.png',
       content: '안녕하세요 저는 민무길입니다.',
       date: '2022-02-10 19:21:03',
+      messageId: 3,
     },
     {
       userId: 2,
@@ -44,6 +47,7 @@ const initState = {
       profileImage: 'https://github.com/BGM-109.png',
       content: '반가워요',
       date: '2022-02-10 19:22:03',
+      messageId: 4,
     },
     {
       userId: 1,
@@ -51,6 +55,7 @@ const initState = {
       profileImage: 'https://github.com/minbr0ther.png',
       content: '저도 반가워요',
       date: '2022-02-10 19:23:03',
+      messageId: 5,
     },
   ],
 };
@@ -61,7 +66,13 @@ export function messageReducer(state = initState, action) {
     case ADD_MESSAGE:
       return state;
     case DELETE_MESSAGE:
-      return state;
+      return {
+        messages: [
+          ...state.messages.filter(
+            (message) => message.userName !== state.user.name,
+          ),
+        ],
+      };
     case REPLY_MESSAGE:
       return state;
     default:
