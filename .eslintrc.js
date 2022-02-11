@@ -17,6 +17,7 @@ module.exports = {
     'no-alert': 'off',
     'import/no-named-as-default': 0,
     'import/no-named-as-default-member': 0,
+    'import/prefer-default-export': 'off',
     'no-param-reassign': [
       'error',
       { props: true, ignorePropertyModificationsFor: ['draft'] },
