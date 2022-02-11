@@ -8,7 +8,8 @@ import * as S from 'styles/styled';
 
 function App() {
   const name = useSelector((state) => state.logInReducer.user.name);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  dispatch(logIn('test'));
 
   useEffect(() => {
     // const userInput = prompt('사용자 이름을 입력해주세요.');
