@@ -45,7 +45,8 @@ const initState = {
       userId: 3,
       userName: '민무길',
       profileImage: 'https://github.com/gilmujjang.png',
-      content: '안녕하세요 저는 민무길입니다.',
+      content:
+        '안녕하세요 주니어 프론트 엔드 개발자 민무길입니다. 취미는 테니스 입니다',
       date: '2022-02-10 19:21:03',
       messageId: 3,
     },
