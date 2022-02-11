@@ -69,7 +69,7 @@ const name = useSelector((state) => state.logInReducer.user.name);
   }
 ```
 ### onSubmit 새로고침 되는 현상
-- <form onSubmit={onSubmit}>
+- button 말고 form에 onSubmit 속성 달아줘야 refresh 현상 없어짐
 ```
 <form onSubmit={onSubmit}>
 ```
