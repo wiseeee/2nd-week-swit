@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import {
   ADD_MESSAGE,
   DELETE_MESSAGE,
@@ -84,8 +85,8 @@ export function messageReducer(state = initState, action) {
         ],
       };
     case REPLY_MESSAGE:
-      // eslint-disable-next-line no-case-declarations
-      const message = `${action.payload.userName} \n ${action.payload.content} \n 회신 \n`;
+      const { userName, content } = action.payload;
+      const message = `${userName}\n${content}\n회신\n${state.text}`;
       return { ...state, text: message };
 
     default:
