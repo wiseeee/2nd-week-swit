@@ -9,7 +9,7 @@ export const Layout = styled.div`
 `;
 
 export const Main = styled.div`
-  background: #fff;
+  background: #eee;
   width: 60%;
   min-width: 720px;
 `;

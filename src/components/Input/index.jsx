@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-// import { faPaperPlaneTop } from '@fortawesome/free-solid-svg-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMessage, addMessage, setBottomMessage } from 'reducers/reducer';
-import { Wrapper, MessageInput } from './styled';
+import { Wrapper, MessageInput, Form, SendBtn } from './styled';
 
 function Input() {
   const text = useSelector((state) => state.messageReducer.text);
@@ -63,7 +63,8 @@ function Input() {
 
   return (
     <Wrapper>
-      <form onSubmit={onSubmit}>
+      <FontAwesomeIcon icon={faPlus} size="lg" />
+      <Form onSubmit={onSubmit}>
         <MessageInput
           type="text"
           placeholder="Enter message"
@@ -72,11 +73,10 @@ function Input() {
           onChange={onChange}
           onKeyDown={handleKeyPress}
         />
-        <button type="submit" disabled={!text}>
-          전송!
-          {/* <FontAwesomeIcon icon={['fas', 'coffee']} /> */}
-        </button>
-      </form>
+        <SendBtn type="submit" disabled={!text} isActive={text.length > 0}>
+          <FontAwesomeIcon icon={faPaperPlane} size="2x" inverse />
+        </SendBtn>
+      </Form>
     </Wrapper>
   );
 }
