@@ -6,7 +6,8 @@
 2. 메신저 삭제, 답장, 추가 기능 구현
 
 # 🔗 배포
-
+[https://infallible-panini-19ee47.netlify.app/](https://infallible-panini-19ee47.netlify.app/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4cdb7c60-5f99-420f-9f10-5420389e3332/deploy-status)](https://app.netlify.com/sites/infallible-panini-19ee47/deploys)
 
 
 # ⚙️ 설치 및 시작하는 법
