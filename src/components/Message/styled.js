@@ -59,4 +59,5 @@ export const MessageBottomBar = styled.div`
 
 export const Content = styled.div`
   padding: 4px;
+  white-space: pre-wrap;
 `;
