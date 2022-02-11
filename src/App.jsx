@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Input from 'components/Input/index';
 import MessageList from 'components/MessageList/index';
 import { useDispatch, useSelector } from 'react-redux';
-// import { logIn } from 'reducers/reducer';
+import { logIn } from 'reducers/reducer';
 import ChannelToolbar from 'components/ChannelToolbar';
 import * as S from 'styles/styled';
 
