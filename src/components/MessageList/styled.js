@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
-// eslint-disable-next-line import/prefer-default-export
 export const MessageListWrap = styled.div`
   display: flex;
   flex-direction: column;
+  height: calc(100% - 64px);
+  padding: 4px;
+  border-radius: 8px;
+  background-color: #eeeeee;
 `;
 
 export const ReplyTextWrap = styled.div`

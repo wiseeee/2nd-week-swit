@@ -6,6 +6,9 @@ export const MessageBox = styled.div`
   align-self: ${(props) => (props.loggedUser ? 'flex-end' : 'flex-start')};
   flex-direction: ${(props) => (props.loggedUser ? 'row-reverse' : 'row')};
   padding: 8px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  margin: 8px; 0
 `;
 
 export const ProfileImage = styled.img`
