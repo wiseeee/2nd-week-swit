@@ -14,6 +14,10 @@ export const deleteMessage = (id) => {
   return { type: DELETE_MESSAGE, payload: id };
 };
 
+export const replyMessage = (messageInfo) => {
+  return { type: REPLY_MESSAGE, payload: messageInfo };
+};
+
 // 초기 설정
 const initState = {
   user: {
@@ -62,6 +66,7 @@ const initState = {
       messageId: 5,
     },
   ],
+  text: '',
 };
 
 // 리듀서
@@ -78,7 +83,10 @@ export function messageReducer(state = initState, action) {
         ],
       };
     case REPLY_MESSAGE:
-      return state;
+      // eslint-disable-next-line no-case-declarations
+      const message = `${action.payload.userName} \n ${action.payload.content} \n 회신 \n`;
+      return { ...state, text: message };
+
     default:
       return {
         ...state,

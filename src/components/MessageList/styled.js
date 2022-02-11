@@ -5,3 +5,7 @@ export const MessageListWrap = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const ReplyTextWrap = styled.div`
+  white-space: pre-wrap;
+`;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as S from './styled';
-import { deleteMessage } from '../../reducers/reducer';
+import { deleteMessage, replyMessage } from '../../reducers/reducer';
 
 function Message(props) {
   const { message } = props;
@@ -16,6 +16,11 @@ function Message(props) {
     } else {
       e.preventDefault();
     }
+  };
+
+  const replyClick = (e) => {
+    e.preventDefault();
+    dispatch(replyMessage(message));
   };
 
   return (
@@ -41,7 +46,9 @@ function Message(props) {
                 삭제
               </button>
             ) : (
-              <button type="button">답장</button>
+              <button type="button" onClick={(e) => replyClick(e)}>
+                답장
+              </button>
             )}
           </div>
         </S.MessageBottomBar>
