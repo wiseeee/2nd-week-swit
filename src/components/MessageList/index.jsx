@@ -6,20 +6,13 @@ import * as S from './styled';
 function MessageList() {
   const AllMessage = useSelector((state) => state.messageReducer.messages);
   const ReverseAllMessageKeys = Object.keys(AllMessage).reverse();
-  const replyText = useSelector((state) => state.messageReducer.text);
 
   return (
-    <>
-      <S.MessageListWrap>
-        {ReverseAllMessageKeys.map((key) => (
-          <Message
-            key={key}
-            message={AllMessage[AllMessage.length - 1 - key]}
-          />
-        ))}
-      </S.MessageListWrap>
-      <S.ReplyTextWrap>{replyText}</S.ReplyTextWrap>
-    </>
+    <S.MessageListWrap>
+      {ReverseAllMessageKeys.map((key) => (
+        <Message key={key} message={AllMessage[key]} />
+      ))}
+    </S.MessageListWrap>
   );
 }
 

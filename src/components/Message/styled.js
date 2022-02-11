@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const MessageBox = styled.div`
   display: flex;
   justify-content: flex-start;
-  align-self: ${(props) => (props.loggedUser ? 'flex-end' : 'flex-start')};
-  flex-direction: ${(props) => (props.loggedUser ? 'row-reverse' : 'row')};
+  align-self: ${(props) => (props.myMessage ? 'flex-end' : 'flex-start')};
+  flex-direction: ${(props) => (props.myMessage ? 'row-reverse' : 'row')};
   padding: 8px;
   background-color: #ffffff;
   border-radius: 12px;
@@ -33,7 +33,7 @@ export const NoProfileImage = styled.div`
 export const MessageTopBar = styled.div`
   display: flex;
   align-items: baseline;
-  flex-direction: ${(props) => (props.loggedUser ? 'row-reverse' : 'row')};
+  flex-direction: ${(props) => (props.myMessage ? 'row-reverse' : 'row')};
 `;
 
 export const UserName = styled.div`
@@ -50,8 +50,8 @@ export const MessageTimeStamp = styled.div`
 export const MessageBottomBar = styled.div`
   display: flex;
   align-items: baseline;
-  flex-direction: ${(props) => (props.loggedUser ? 'row-reverse' : 'row')};
-  align-self: ${(props) => (props.loggedUser ? 'flex-end' : 'flex-start')};
+  flex-direction: ${(props) => (props.myMessage ? 'row-reverse' : 'row')};
+  align-self: ${(props) => (props.myMessage ? 'flex-end' : 'flex-start')};
   button {
     cursor: pointer;
   }

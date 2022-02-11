@@ -9,10 +9,10 @@ function Message(props) {
   const name = useSelector((state) => state.logInReducer.user.name);
 
   const dispatch = useDispatch();
-  const deleteClick = (e, id) => {
+  const deleteClick = (e) => {
     e.preventDefault();
     if (window.confirm('정말 삭제하시겠습니까?')) {
-      dispatch(deleteMessage(id));
+      dispatch(deleteMessage(messageId));
     } else {
       e.preventDefault();
     }
@@ -23,26 +23,28 @@ function Message(props) {
     dispatch(replyMessage(message));
   };
 
+  const myMessage = userName === name;
+
   return (
-    <S.MessageBox loggedUser={userName === name}>
+    <S.MessageBox myMessage={myMessage}>
       {profileImage ? (
         <S.ProfileImage src={profileImage} alt="프로필이미지" />
       ) : (
         <S.NoProfileImage>{userName[0]}</S.NoProfileImage>
       )}
       <div>
-        <S.MessageTopBar loggedUser={userName === name}>
+        <S.MessageTopBar myMessage={myMessage}>
           <S.UserName>
             {userName}
-            {userName === name && <span>*</span>}
+            {myMessage && <span>*</span>}
           </S.UserName>
           <S.MessageTimeStamp>{date}</S.MessageTimeStamp>
         </S.MessageTopBar>
-        <S.MessageBottomBar loggedUser={userName === name}>
+        <S.MessageBottomBar myMessage={myMessage}>
           <S.Content>{content}</S.Content>
           <div>
-            {name === userName ? (
-              <button type="button" onClick={(e) => deleteClick(e, messageId)}>
+            {myMessage ? (
+              <button type="button" onClick={(e) => deleteClick(e)}>
                 삭제
               </button>
             ) : (
