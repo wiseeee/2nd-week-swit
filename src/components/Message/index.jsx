@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as S from './styled';
-import { deleteMessage, replyMessage } from '../../reducers/reducer';
+import { deleteMessage, setTopMessage } from '../../reducers/reducer';
 
 function Message(props) {
   const { message } = props;
@@ -20,7 +20,7 @@ function Message(props) {
 
   const replyClick = (e) => {
     e.preventDefault();
-    dispatch(replyMessage(message));
+    dispatch(setTopMessage(message));
   };
 
   return (

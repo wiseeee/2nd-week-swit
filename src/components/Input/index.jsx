@@ -10,7 +10,13 @@ function Input() {
   const text = useSelector((state) => state.messageReducer.text);
   const currentUser = useSelector((state) => state.logInReducer.user);
   const messages = useSelector((state) => state.messageReducer.messages);
+  const topMsg = useSelector((state) => state.messageReducer.topMessage);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setMessage(topMsg + text));
+  }, [topMsg]);
+
   const onChange = (e) => {
     e.preventDefault();
     dispatch(setMessage(e.target.value));
@@ -48,6 +54,7 @@ function Input() {
 
   return (
     <Wrapper>
+      <div>{topMsg}</div>
       <form onSubmit={onSubmit}>
         <MessageInput
           type="text"
