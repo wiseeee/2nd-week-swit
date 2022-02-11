@@ -36,12 +36,7 @@ function Input(props) {
 
   const onChange = (e) => {
     e.preventDefault();
-    if (reply === '') {
-      dispatch(setMessage(e.target.value));
-    } else if (reply.length > 0) {
-      const temp = e.target.value.replace(reply, '');
-      dispatch(setMessage(reply + temp));
-    }
+    dispatch(setMessage(e.target.value));
     scrollToBottom();
   };
   const timestamp = () => {
