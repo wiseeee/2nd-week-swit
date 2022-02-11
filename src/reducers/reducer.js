@@ -6,6 +6,7 @@ import {
   LOG_IN,
   SET_MESSAGE,
   SET_TOP_MESSAGE,
+  SET_BOTTOM_MESSAGE,
 } from 'actions/types';
 
 // 액션 생성 함수
@@ -29,6 +30,9 @@ export const addMessage = (message) => {
 };
 export const setTopMessage = (messageInfo) => {
   return { type: SET_TOP_MESSAGE, payload: messageInfo };
+};
+export const setBottomMessage = (bottomMessage) => {
+  return { type: SET_BOTTOM_MESSAGE, payload: bottomMessage };
 };
 
 // 초기 설정
@@ -82,6 +86,7 @@ const initState = {
   ],
   text: '',
   topMessage: '',
+  bottomMessage: '',
 };
 
 // 리듀서
@@ -112,6 +117,11 @@ export function messageReducer(state = initState, action) {
       return {
         ...state,
         text: action.payload,
+      };
+    case SET_BOTTOM_MESSAGE:
+      return {
+        ...state,
+        bottomMessage: action.payload,
       };
     default:
       return {

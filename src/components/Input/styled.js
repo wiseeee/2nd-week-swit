@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
 `;
 
 export const MessageInput = styled.textarea`
+  height: 100px;
   &placeholder {
     color: #e6e6e8;
   }

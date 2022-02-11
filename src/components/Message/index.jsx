@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { deleteMessage, setTopMessage } from 'reducers/reducer';
 import * as S from './styled';
-import { deleteMessage, setTopMessage } from '../../reducers/reducer';
 
 function Message(props) {
   const { message } = props;

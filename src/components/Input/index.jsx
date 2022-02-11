@@ -3,23 +3,32 @@ import React, { useEffect, useState } from 'react';
 // import { faPaperPlaneTop } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector, useDispatch } from 'react-redux';
-import { setMessage, addMessage } from 'reducers/reducer';
+import { setMessage, addMessage, setBottomMessage } from 'reducers/reducer';
 import { Wrapper, MessageInput } from './styled';
 
 function Input() {
   const text = useSelector((state) => state.messageReducer.text);
+  const bottomMessage = useSelector(
+    (state) => state.messageReducer.bottomMessage,
+  );
   const currentUser = useSelector((state) => state.logInReducer.user);
   const messages = useSelector((state) => state.messageReducer.messages);
   const topMsg = useSelector((state) => state.messageReducer.topMessage);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setMessage(topMsg + text));
+    dispatch(setMessage(topMsg + bottomMessage));
   }, [topMsg]);
 
   const onChange = (e) => {
     e.preventDefault();
     dispatch(setMessage(e.target.value));
+    if (topMsg === '') {
+      dispatch(setBottomMessage(e.target.value));
+    } else if (topMsg.length > 0) {
+      const temp = e.target.value.replace(topMsg, '');
+      dispatch(setBottomMessage(temp));
+    }
   };
   const timestamp = () => {
     const today = new Date();
@@ -39,7 +48,7 @@ function Input() {
     e.preventDefault();
     dispatch(addMessage(newMessage));
     dispatch(setMessage(''));
-    console.log(messages);
+    console.log(newMessage);
   };
 
   const handleKeyPress = (e) => {
@@ -54,7 +63,6 @@ function Input() {
 
   return (
     <Wrapper>
-      <div>{topMsg}</div>
       <form onSubmit={onSubmit}>
         <MessageInput
           type="text"
