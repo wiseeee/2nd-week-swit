@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const MessageListWrap = styled.div`
   display: flex;
   flex-direction: column;
-  height: calc(100% - 64px - 70px);
+  height: calc(100% - 140px);
   padding: 4px;
   border-radius: 8px;
   overflow: scroll;

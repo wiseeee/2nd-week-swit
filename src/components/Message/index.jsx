@@ -41,7 +41,7 @@ function Message(props) {
           <S.MessageTimeStamp>{date}</S.MessageTimeStamp>
         </S.MessageTopBar>
         <S.MessageBottomBar myMessage={myMessage}>
-          <S.Content>{content}</S.Content>
+          <S.Content style={{ maxWidth: '500px' }}>{content}</S.Content>
           <div>
             {myMessage ? (
               <button type="button" onClick={(e) => deleteClick(e)}>

@@ -1,3 +1,4 @@
+/* eslint-disable no-bitwise */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,6 +8,7 @@ import { setMessage, addMessage, setBottomMessage } from 'reducers/reducer';
 import { Wrapper, MessageInput, Form, SendBtn } from './styled';
 
 function Input() {
+  const [rows, setRows] = useState(2);
   const text = useSelector((state) => state.messageReducer.text);
   const bottomMessage = useSelector(
     (state) => state.messageReducer.bottomMessage,
@@ -22,6 +24,16 @@ function Input() {
 
   const onChange = (e) => {
     e.preventDefault();
+    const textareaLineHeight = 24;
+    const currentRows = ~~(e.target.scrollHeight / textareaLineHeight);
+    console.log(currentRows);
+    if (currentRows <= 2) {
+      setRows(2);
+    } else if (currentRows > 10) {
+      setRows(10);
+    } else {
+      setRows(currentRows);
+    }
     dispatch(setMessage(e.target.value));
     if (topMsg === '') {
       dispatch(setBottomMessage(e.target.value));
@@ -48,7 +60,7 @@ function Input() {
     e.preventDefault();
     dispatch(addMessage(newMessage));
     dispatch(setMessage(''));
-    console.log(newMessage);
+    setRows(2);
   };
 
   const handleKeyPress = (e) => {
@@ -66,7 +78,8 @@ function Input() {
       <FontAwesomeIcon icon={faPlus} size="lg" />
       <Form onSubmit={onSubmit}>
         <MessageInput
-          type="text"
+          type="textarea"
+          rows={rows}
           placeholder="Enter message"
           name="message"
           value={text}

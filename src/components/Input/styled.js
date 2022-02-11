@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  height: 50px;
   border: 1px solid #ccc;
   border-radius: 3px;
   margin: 20px;
@@ -11,7 +10,10 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 5px 5px 5px 10px;
-
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: calc(100% - 40px);
   &:focus-within {
     border: 1px solid #333;
   }
@@ -28,22 +30,12 @@ export const Form = styled.form`
 export const MessageInput = styled.textarea`
   width: 100%;
   font-size: 15px;
-  height: 24px;
   box-sizing: border-box;
   border: none;
   resize: none;
-
+  height: auto
   &:focus {
     outline: none;
-  }
-
-  &:before {
-    content: '';
-    height: 10px;
-    border-left: 1px solid #ddd;
-    position: absolute;
-    left: 0;
-    top: 50%;
   }
 
   &:placeholder {
