@@ -17,16 +17,14 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <S.Layout>
-        <S.Main>
-          <ChannelToolbar />
-          <MessageList />
-          <Input />
-          <span> 리덕스 테스트 : {name} </span>
-        </S.Main>
-      </S.Layout>
-    </div>
+    <S.Layout>
+      <S.Main>
+        <ChannelToolbar />
+        <MessageList />
+        <Input />
+        <span> 리덕스 테스트 : {name} </span>
+      </S.Main>
+    </S.Layout>
   );
 }
 
