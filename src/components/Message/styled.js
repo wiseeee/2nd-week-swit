@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const MessageBox = styled.div`
   display: flex;
+  justify-content: flex-start;
+  align-self: ${(props) => (props.loggedUser ? 'flex-end' : 'flex-start')};
+  flex-direction: ${(props) => (props.loggedUser ? 'row-reverse' : 'row')};
   padding: 8px;
 `;
 
@@ -26,6 +29,8 @@ export const NoProfileImage = styled.div`
 
 export const MessageTopBar = styled.div`
   display: flex;
+  align-items: baseline;
+  flex-direction: ${(props) => (props.loggedUser ? 'row-reverse' : 'row')};
 `;
 
 export const UserName = styled.div`
@@ -36,10 +41,17 @@ export const UserName = styled.div`
 
 export const MessageTimeStamp = styled.div`
   padding: 4px;
+  font-size: 12px;
 `;
 
 export const MessageBottomBar = styled.div`
   display: flex;
+  align-items: baseline;
+  flex-direction: ${(props) => (props.loggedUser ? 'row-reverse' : 'row')};
+  align-self: ${(props) => (props.loggedUser ? 'flex-end' : 'flex-start')};
+  button {
+    cursor: pointer;
+  }
 `;
 
 export const Content = styled.div`
