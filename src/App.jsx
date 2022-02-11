@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Input from 'components/Input/index';
 import MessageList from 'components/MessageList/index';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,13 +9,13 @@ function App() {
   const dispatch = useDispatch();
   dispatch(logIn('test'));
 
-  // useEffect(() => {
-  //   const userInput = prompt('사용자 이름을 입력해주세요.');
+  useEffect(() => {
+    const userInput = prompt('사용자 이름을 입력해주세요.');
 
-  //   dispatch(logIn(userInput));
+    dispatch(logIn(userInput));
 
-  //   alert(`반갑습니다 ${userInput}님 😀`);
-  // }, []);
+    alert(`반갑습니다 ${userInput}님 😀`);
+  }, []);
 
   return (
     <div className="App">
