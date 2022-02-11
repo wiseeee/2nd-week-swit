@@ -1,8 +1,10 @@
 import React from 'react';
 import * as S from './styled';
 
-function Message(message) {
-  const { userName, profileImage, content, date } = message.message;
+function Message(props) {
+  const { message } = props;
+  const { userName, profileImage, content, date } = message;
+
   return (
     <S.MessageBox>
       {profileImage ? (
@@ -15,7 +17,13 @@ function Message(message) {
           <S.UserName>{userName}</S.UserName>
           <S.MessageTimeStamp>{date}</S.MessageTimeStamp>
         </S.MessageTopBar>
-        <S.Content>{content}</S.Content>
+        <S.MessageBottomBar>
+          <S.Content>{content}</S.Content>
+          <div>
+            <button type="button">답장</button>
+            <button type="button">삭제</button>
+          </div>
+        </S.MessageBottomBar>
       </div>
     </S.MessageBox>
   );

@@ -38,6 +38,10 @@ export const MessageTimeStamp = styled.div`
   padding: 4px;
 `;
 
+export const MessageBottomBar = styled.div`
+  display: flex;
+`;
+
 export const Content = styled.div`
   padding: 4px;
 `;
