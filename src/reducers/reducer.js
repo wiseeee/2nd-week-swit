@@ -5,7 +5,6 @@ import {
   LOG_IN,
   SET_MESSAGE,
   SET_REPLY,
-  SET_BOTTOM_MESSAGE,
 } from 'actions/types';
 
 // 액션 생성 함수
@@ -25,9 +24,6 @@ export const addMessage = (message) => {
 };
 export const setReply = (messageInfo) => {
   return { type: SET_REPLY, payload: messageInfo };
-};
-export const setBottomMessage = (text) => {
-  return { type: SET_BOTTOM_MESSAGE, payload: text };
 };
 
 // 초기 설정
@@ -107,11 +103,6 @@ export function messageReducer(state = initState, action) {
       const msg = `${userInfo.userName}\n${userInfo.content}\n회신\n`;
       return { ...state, reply: msg };
     case SET_MESSAGE:
-      return {
-        ...state,
-        text: action.payload,
-      };
-    case SET_BOTTOM_MESSAGE:
       return {
         ...state,
         text: action.payload,

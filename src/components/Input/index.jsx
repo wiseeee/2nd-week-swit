@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
-import { setMessage, addMessage, setBottomMessage } from 'reducers/reducer';
+import { setMessage, addMessage } from 'reducers/reducer';
 import { Wrapper, MessageInput, Form, SendBtn } from './styled';
 
 function Input(props) {

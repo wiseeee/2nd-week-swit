@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100% - 40px);
+  height: calc(100% - 60px);
 `;
 
 export const MessageListWrap = styled.div`
