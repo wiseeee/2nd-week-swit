@@ -20,7 +20,7 @@ const initState = {
     {
       userId: 1,
       userName: '정민형',
-      profileImage: 'https://github.com/minbr0ther.png',
+      // profileImage: 'https://github.com/minbr0ther.png',
       content: '안녕하세요 저는 정민형입니다.',
       date: '2022-02-10 19:19:03',
     },
