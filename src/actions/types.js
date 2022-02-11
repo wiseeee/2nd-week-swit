@@ -7,3 +7,4 @@ export const DELETE_MESSAGE = (id) => {
 };
 export const REPLY_MESSAGE = 'REPLY_MESSAGE';
 export const LOG_IN = 'LOG_IN';
+export const SET_MESSAGE = 'SET_MESSAGE';

@@ -4,6 +4,7 @@ import {
   DELETE_MESSAGE,
   REPLY_MESSAGE,
   LOG_IN,
+  SET_MESSAGE,
 } from 'actions/types';
 
 // 액션 생성 함수
@@ -17,6 +18,13 @@ export const deleteMessage = (id) => {
 
 export const replyMessage = (messageInfo) => {
   return { type: REPLY_MESSAGE, payload: messageInfo };
+};
+
+export const setMessage = (text) => {
+  return { type: SET_MESSAGE, payload: text };
+};
+export const addMessage = (message) => {
+  return { type: ADD_MESSAGE, payload: message };
 };
 
 // 초기 설정
@@ -75,7 +83,10 @@ const initState = {
 export function messageReducer(state = initState, action) {
   switch (action.type) {
     case ADD_MESSAGE:
-      return state;
+      return {
+        ...state,
+        messages: [...state.messages, action.payload],
+      };
     case DELETE_MESSAGE:
       return {
         messages: [
@@ -88,7 +99,11 @@ export function messageReducer(state = initState, action) {
       const { userName, content } = action.payload;
       const message = `${userName}\n${content}\n회신\n${state.text}`;
       return { ...state, text: message };
-
+    case SET_MESSAGE:
+      return {
+        ...state,
+        text: action.payload,
+      };
     default:
       return {
         ...state,
