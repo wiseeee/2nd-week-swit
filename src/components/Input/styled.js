@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   align-items: center;
   padding: 5px 5px 5px 10px;
   width: calc(100% - 40px);
+
   &:focus-within {
     border: 1px solid #333;
   }
@@ -31,6 +32,7 @@ export const MessageInput = styled.textarea`
   border: none;
   resize: none;
   height: auto;
+
   &:focus {
     outline: none;
   }

@@ -14,7 +14,7 @@ export const ToolBarBrand = styled.h1`
   font-weight: bold;
   font-size: 22px;
   cursor: pointer;
-  space-x: 2px;
+
   &:hover {
     text-decoration: underline;
   }
@@ -30,8 +30,9 @@ export const ToolBarIcons = styled.div`
 
 export const HoverDiv = styled.div`
   cursor: pointer;
+
   &:hover {
-    transform: scale(1.2);
-    transition: transform 0.5s;
+    transform: scale(1.1);
+    transition: transform 0.3s;
   }
 `;

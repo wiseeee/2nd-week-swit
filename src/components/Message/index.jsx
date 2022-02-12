@@ -9,10 +9,11 @@ function Message(props) {
   const name = useSelector((state) => state.logInReducer.user.name);
   const reply = useSelector((state) => state.messageReducer.reply);
   const text = useSelector((state) => state.messageReducer.text);
-
   const dispatch = useDispatch();
+
   const deleteClick = (e) => {
     e.preventDefault();
+
     if (window.confirm('정말 삭제하시겠습니까?')) {
       dispatch(deleteMessage(messageId));
     } else {
@@ -22,6 +23,7 @@ function Message(props) {
 
   const replyClick = (e) => {
     e.preventDefault();
+
     if (reply !== `${userName}\n${content}\n회신\n`) {
       dispatch(setMessage(text.replace(reply, '')));
       dispatch(setReply(message));

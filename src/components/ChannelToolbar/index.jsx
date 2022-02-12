@@ -5,33 +5,28 @@ import {
   faUser,
   faThumbtack,
 } from '@fortawesome/free-solid-svg-icons';
-import {
-  ToolBarContainer,
-  ToolBarBrand,
-  ToolBarIcons,
-  HoverDiv,
-} from './styled';
+import * as S from './styled';
 
 function ChannelToolbar() {
   return (
-    <ToolBarContainer>
-      <ToolBarBrand>
+    <S.ToolBarContainer>
+      <S.ToolBarBrand>
         Sixted
         <FontAwesomeIcon
           icon={faAngleDown}
           size="xs"
           style={{ marginLeft: '5px' }}
         />
-      </ToolBarBrand>
-      <ToolBarIcons>
-        <HoverDiv>
+      </S.ToolBarBrand>
+      <S.ToolBarIcons>
+        <S.HoverDiv>
           <FontAwesomeIcon icon={faUser} /> 4
-        </HoverDiv>
-        <HoverDiv>
+        </S.HoverDiv>
+        <S.HoverDiv>
           <FontAwesomeIcon icon={faThumbtack} /> 0
-        </HoverDiv>
-      </ToolBarIcons>
-    </ToolBarContainer>
+        </S.HoverDiv>
+      </S.ToolBarIcons>
+    </S.ToolBarContainer>
   );
 }
 

@@ -19,9 +19,11 @@ export const deleteMessage = (id) => {
 export const setMessage = (text) => {
   return { type: SET_MESSAGE, payload: text };
 };
+
 export const addMessage = (message) => {
   return { type: ADD_MESSAGE, payload: message };
 };
+
 export const setReply = (messageInfo) => {
   return { type: SET_REPLY, payload: messageInfo };
 };
@@ -33,6 +35,7 @@ export function logInReducer(state = initState, action) {
         ...state,
         user: { ...state.user, name: action.payload },
       };
+
     default:
       return {
         ...state,
@@ -49,6 +52,7 @@ export function messageReducer(state = initState, action) {
         text: '',
         reply: '',
       };
+
     case DELETE_MESSAGE:
       return {
         ...state,
@@ -58,15 +62,18 @@ export function messageReducer(state = initState, action) {
           ),
         ],
       };
+
     case SET_REPLY:
       const userInfo = action.payload;
       const msg = `${userInfo.userName}\n${userInfo.content}\n회신\n`;
       return { ...state, reply: msg };
+
     case SET_MESSAGE:
       return {
         ...state,
         text: action.payload,
       };
+
     default:
       return {
         ...state,

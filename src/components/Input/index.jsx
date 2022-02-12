@@ -5,11 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMessage, addMessage } from 'reducers/reducer';
-import { Wrapper, MessageInput, Form, SendBtn } from './styled';
+import * as S from './styled';
 
 const timestamp = () => {
   const today = new Date();
   today.setHours(today.getHours() + 9);
+
   return today.toISOString().replace('T', ' ').substring(0, 19);
 };
 
@@ -77,10 +78,10 @@ function Input(props) {
   };
 
   return (
-    <Wrapper>
+    <S.Wrapper>
       <FontAwesomeIcon icon={faPlus} size="lg" />
-      <Form onSubmit={onSubmit}>
-        <MessageInput
+      <S.Form onSubmit={onSubmit}>
+        <S.MessageInput
           type="textarea"
           rows={rows}
           ref={textRef}
@@ -90,15 +91,15 @@ function Input(props) {
           onChange={onChange}
           onKeyDown={handleKeyPress}
         />
-        <SendBtn
+        <S.SendBtn
           type="submit"
           disabled={!text}
           isActive={text && text.length > 0}
         >
           <FontAwesomeIcon icon={faPaperPlane} size="2x" inverse />
-        </SendBtn>
-      </Form>
-    </Wrapper>
+        </S.SendBtn>
+      </S.Form>
+    </S.Wrapper>
   );
 }
 

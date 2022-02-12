@@ -8,8 +8,8 @@ export const MessageBox = styled.div`
   padding: 8px;
   background-color: #ffffff;
   border-radius: 12px;
-  margin: 8px; 0
-  `;
+  margin: 8px;
+`;
 
 export const ProfileImage = styled.img`
   width: 48px;
@@ -52,6 +52,7 @@ export const MessageBottomBar = styled.div`
   align-items: baseline;
   flex-direction: ${(props) => (props.myMessage ? 'row-reverse' : 'row')};
   align-self: ${(props) => (props.myMessage ? 'flex-end' : 'flex-start')};
+
   button {
     cursor: pointer;
   }
