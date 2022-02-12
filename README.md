@@ -16,9 +16,9 @@
 # ⚙️ 설치 및 시작하는 법
 
 ```
-$ git clone https://github.com/pre-onboarding-course-team-6/2nd-week-ateam-ventures
+$ git clone https://github.com/pre-onboarding-course-team-6/2nd-week-swit
 
-$ cd 2nd-week-ateam-ventures
+$ cd 2nd-week-swit
 
 $ npm install
 
