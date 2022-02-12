@@ -7,6 +7,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setMessage, addMessage } from 'reducers/reducer';
 import { Wrapper, MessageInput, Form, SendBtn } from './styled';
 
+const timestamp = () => {
+  const today = new Date();
+  today.setHours(today.getHours() + 9);
+  return today.toISOString().replace('T', ' ').substring(0, 19);
+};
+
 function Input(props) {
   const textRef = useRef();
   const { scrollToBottom } = props;
@@ -36,16 +42,14 @@ function Input(props) {
 
   const onChange = (e) => {
     e.preventDefault();
+
     dispatch(setMessage(e.target.value));
     scrollToBottom();
   };
-  const timestamp = () => {
-    const today = new Date();
-    today.setHours(today.getHours() + 9);
-    return today.toISOString().replace('T', ' ').substring(0, 19);
-  };
 
   const onSubmit = (e) => {
+    e.preventDefault();
+
     const newMessage = {
       userId: currentUser.id,
       userName: currentUser.name,
@@ -54,7 +58,7 @@ function Input(props) {
       date: timestamp(),
       messageId: messages.length + 1,
     };
-    e.preventDefault();
+
     dispatch(addMessage(newMessage));
     setRows(2);
   };
@@ -63,8 +67,11 @@ function Input(props) {
     if (e.key === 'Enter' && e.shiftKey) {
       return;
     }
-    if (e.keyCode === 13) {
+    if (e.key === 'Enter') {
       e.preventDefault();
+
+      if (text.length === 0) return;
+
       onSubmit(e);
     }
   };
