@@ -30,7 +30,7 @@ export const MessageInput = styled.textarea`
   box-sizing: border-box;
   border: none;
   resize: none;
-  height: auto
+  height: auto;
   &:focus {
     outline: none;
   }
