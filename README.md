@@ -26,10 +26,14 @@
 
 ### 메신저 기능
   - 사용자 처음 사용할 때 로그인 prompt로 사용자 이름 받기
+  <br/>
     <img src="https://user-images.githubusercontent.com/82519641/157753851-5aa08ef0-7734-4ac4-b47e-8ffad03fe9a1.png" width="200px">
+     <br/>
   - 내가 보낸 메세지 삭제 가능
   - 상대방의 메세지 회신 클릭시 input box에 상대방이름, 메세지 추가
+   <br/>
     <img src="https://user-images.githubusercontent.com/82519641/157754243-360904c6-1c85-42ee-bb01-3a36fd06282d.png" width="500px">
+     <br/>
 
 
 <br/>
