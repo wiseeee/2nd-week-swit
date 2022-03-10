@@ -26,14 +26,14 @@
 
 ### 메신저 기능
   - 사용자 처음 사용할 때 로그인 prompt로 사용자 이름 받기
-  <br/>
+    <br/>
     <img src="https://user-images.githubusercontent.com/82519641/157753851-5aa08ef0-7734-4ac4-b47e-8ffad03fe9a1.png" width="400px">
-     <br/>
+    <br/>
   - 내가 보낸 메세지 삭제 가능
   - 상대방의 메세지 회신 클릭시 input box에 상대방이름, 메세지 추가
-   <br/>
+    <br/>
     <img src="https://user-images.githubusercontent.com/82519641/157754243-360904c6-1c85-42ee-bb01-3a36fd06282d.png" width="600px">
-     <br/>
+    <br/>
 
 
 <br/>
@@ -74,7 +74,7 @@
 # ⚙️ 설치 및 시작하는 법
 
 ```
-$ git clone https://github.com/pre-onboarding-course-team-6/2nd-week-swit
+$ git clone https://github.com/wiseeee/2nd-week-swit/edit/master/README.md
 
 $ cd 2nd-week-swit
 
