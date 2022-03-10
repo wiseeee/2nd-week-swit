@@ -1,56 +1,37 @@
-![enter image description here](https://user-images.githubusercontent.com/24728385/148955263-b3a0e063-6950-46f2-82e9-1fcabc24e19e.jpeg)
+<h1 align="middle">메신저</h1>
 
-<h1 align="middle">[과제] Swit</h1>
-
-1. React, Redux 구현
-2. 메신저 삭제, 답장, 추가 기능 구현
-<br/>
 
 # 🔗 배포
 [https://infallible-panini-19ee47.netlify.app/](https://infallible-panini-19ee47.netlify.app/)
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4cdb7c60-5f99-420f-9f10-5420389e3332/deploy-status)](https://app.netlify.com/sites/infallible-panini-19ee47/deploys)
 
 <br/>
 
-# ⚙️ 설치 및 시작하는 법
+# 기술스택
 
-```
-$ git clone https://github.com/pre-onboarding-course-team-6/2nd-week-swit
+<img alt="react" src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> <img alt="redux" src="https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=white">
 
-$ cd 2nd-week-swit
+<img alt="styled-components" src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"> <img alt="eslint" src="https://img.shields.io/badge/eslint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white"> <img alt="prettier" src="https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white">
 
-$ npm install
 
-$ npm run start
-```
 <br/>
 
-# 🏹 과제 구현 목록 및 담당
-> ✨ 이슈 해결 및 추가 구현사항 안내 [Notion🔗](https://minbr0ther.notion.site/Swit-014d3ba9d4734f0eb67a7d1254364612)
-<hr/>
 
-### [22_01 민무길](https://github.com/gilmujjang)
 
-1. 메신저 삭제, 답장 기능 구현
-2. 메신저 리스트 기능 구현
-3. 코드 리펙토링
+# 🏹 구현 목록
 
-### [22_01 정민형](https://github.com/minbr0ther)
+### redux 세팅
+  - 초기 상태 - 메세지 5개 보여주기
+  - 메세지 리스트, 접속자
 
-1. Redux 초기 세팅
-2. 입력창 기능 구현
-3. CSS 스타일 담당
+### 메신저 기능
+  - 사용자 처음 사용할 때 로그인 prompt로 사용자 이름 받기
+    <img src="https://user-images.githubusercontent.com/82519641/157753851-5aa08ef0-7734-4ac4-b47e-8ffad03fe9a1.png" width="200px">
+  - 내가 보낸 메세지 삭제 가능
+  - 상대방의 메세지 회신 클릭시 input box에 상대방이름, 메세지 추가
+    <img src="https://user-images.githubusercontent.com/82519641/157754243-360904c6-1c85-42ee-bb01-3a36fd06282d.png" width="500px">
 
-### [22_01 김선명](https://github.com/BGM-109)
 
-1. 입력창 기능 구현
-2. CSS 스타일 담당
-
-### [22_01 이현명](https://github.com/wiseeee)
-
-1. 메신저 삭제, 답장 기능 구현
-2. 메신저 리스트 기능 구현
 <br/>
 
 # 🏗 프로젝트 구조
@@ -86,6 +67,19 @@ $ npm run start
 ```
 <br/>
 
+# ⚙️ 설치 및 시작하는 법
+
+```
+$ git clone https://github.com/pre-onboarding-course-team-6/2nd-week-swit
+
+$ cd 2nd-week-swit
+
+$ npm install
+
+$ npm run start
+```
+<br/>
+
 ## ✅ Git - Commit Message Convention [🔗](https://webruden.tistory.com/486)
 
 - feat : 새로운 기능 추가 (a new feature)
@@ -97,8 +91,3 @@ $ npm run start
 - chore : 빌드 업무 수정, 패키지 매니저 수정 (updating build tasks, package manager configs, etc; no production code change)
 <br/>
 
-## 👨‍👨‍👦‍👦 팀구성원 소개
-
-| [<img src="https://github.com/minbr0ther.png" width="100px">](https://github.com/minbr0ther) | [<img src="https://github.com/BGM-109.png" width="100px">](https://github.com/BGM-109) | [<img src="https://github.com/wiseeee.png" width="100px">](https://github.com/wiseeee) | [<img src="https://github.com/gilmujjang.png" width="100px">](https://github.com/gilmujjang) |
-| :------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: |
-|                        [22_01 정민형](https://github.com/minbr0ther)                         |                       [22_01 김선명](https://github.com/BGM-109)                       |                       [22_01 이현명](https://github.com/wiseeee)                       |                        [22_01 민무길](https://github.com/gilmujjang)                         |
